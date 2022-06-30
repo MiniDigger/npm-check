@@ -29,18 +29,19 @@ const cli = meow(`
           Where to check. Defaults to current directory. Use -g for checking global modules.
 
         Options
-          -u, --update          Interactive update.
-          -y, --update-all      Uninteractive update. Apply all updates without prompting.
-          -g, --global          Look at global modules.
-          -s, --skip-unused     Skip check for unused packages.
-          -p, --production      Skip devDependencies.
-          -d, --dev-only        Look at devDependencies only (skip dependencies).
-          -i, --ignore          Ignore dependencies based on succeeding glob.
-          -E, --save-exact      Save exact version (x.y.z) instead of caret (^x.y.z) in package.json.
-          --specials            List of depcheck specials to include in check for unused dependencies.
-          --no-color            Force or disable color output.
-          --no-emoji            Remove emoji support. No emoji in default in CI environments.
-          --debug               Debug output. Throw in a gist when creating issues on github.
+          -u, --update              Interactive update.
+          -y, --update-all          Uninteractive update. Apply all updates without prompting.
+          -g, --global              Look at global modules.
+          -s, --skip-unused         Skip check for unused packages.
+          -p, --production          Skip devDependencies.
+          -d, --dev-only            Look at devDependencies only (skip dependencies).
+          -i, --ignore              Ignore dependencies based on succeeding glob.
+          -E, --save-exact          Save exact version (x.y.z) instead of caret (^x.y.z) in package.json.
+          -l, --legacy-peer-deps    Disable automatic installation of peer dependencies.
+          --specials                List of depcheck specials to include in check for unused dependencies.
+          --no-color                Force or disable color output.
+          --no-emoji                Remove emoji support. No emoji in default in CI environments.
+          --debug                   Debug output. Throw in a gist when creating issues on github.
 
         Examples
           $ npm-check           # See what can be updated, what isn't being used.
@@ -82,6 +83,10 @@ const cli = meow(`
                 type: 'string',
                 alias: 'i'
             },
+            legacyPeerDeps: {
+                type: 'boolean',
+                alias: 'l'
+            },
             specials: {
                 type: 'string'
             },
@@ -118,7 +123,8 @@ const options = {
     installer: process.env.NPM_CHECK_INSTALLER || 'auto',
     debug: cli.flags.debug,
     spinner: cli.flags.spinner,
-    ignore: cli.flags.ignore
+    ignore: cli.flags.ignore,
+    legacyPeerDeps: cli.flags.legacyPeerDeps,
 };
 
 if (options.debug) {
