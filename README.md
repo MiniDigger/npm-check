@@ -1,12 +1,11 @@
-npm-check
+npm-check-updated
 =========
-[![Build Status](https://travis-ci.org/dylang/npm-check.svg?branch=master)](https://travis-ci.org/dylang/npm-check)
-[![NPM version](https://badge.fury.io/js/npm-check.svg)](http://badge.fury.io/js/npm-check)
-[![npm](https://img.shields.io/npm/dm/npm-check.svg?maxAge=2592000)]()
+[![NPM version](https://badge.fury.io/js/npm-check-updated.svg)](http://badge.fury.io/js/npm-check-updated)
+[![npm](https://img.shields.io/npm/dm/npm-check-updated.svg?maxAge=2592000)]()
 
 > Check for outdated, incorrect, and unused dependencies.
 
-<img width="796" alt="npm-check -u" src="https://cloud.githubusercontent.com/assets/51505/9569917/96947fea-4f48-11e5-9783-2d78077256f2.png">
+<img width="796" alt="npm-check-updated -u" src="https://cloud.githubusercontent.com/assets/51505/9569917/96947fea-4f48-11e5-9783-2d78077256f2.png">
 
 > This is my personal fork, that I may or may not keep updated
 
@@ -16,7 +15,7 @@ npm-check
   * Take all prerelease tags into account https://github.com/dylang/npm-check/pull/347
   * adds support for legacy-peer-deps flag on npm install https://github.com/dylang/npm-check/pull/424
 * allow self signed certs in chain
-*
+* print errors in -u mode
 
 ### Features
 
@@ -38,19 +37,19 @@ npm-check
 
 ### On the command line
 
-This is the easiest way to use `npm-check`.
+This is the easiest way to use `npm-check-updated`.
 
 ### Install
 ```bash
-npm install -g npm-check
+npm install -g npm-check-updated
 ```
 
 ### Use
 ```bash
-npm-check
+npm-check-updated
 ```
 
-<img width="882" alt="npm-check" src="https://cloud.githubusercontent.com/assets/51505/9569919/99c2412a-4f48-11e5-8c65-e9b6530ee991.png">
+<img width="882" alt="npm-check-updated" src="https://cloud.githubusercontent.com/assets/51505/9569919/99c2412a-4f48-11e5-8c65-e9b6530ee991.png">
 
 The result should look like the screenshot, or something nice when your packages are all up-to-date and in use.
 
@@ -60,29 +59,30 @@ When updates are required it will return a non-zero response code that you can u
 
 ```
 Usage
-  $ npm-check <path> <options>
+  $ npm-check-updated <path> <options>
 
 Path
   Where to check. Defaults to current directory. Use -g for checking global modules.
 
 Options
-  -u, --update          Interactive update.
-  -y, --update-all      Uninteractive update. Apply all updates without prompting.
-  -g, --global          Look at global modules.
-  -s, --skip-unused     Skip check for unused packages.
-  -p, --production      Skip devDependencies.
-  -d, --dev-only        Look at devDependencies only (skip dependencies).
-  -i, --ignore          Ignore dependencies based on succeeding glob.
-  -E, --save-exact      Save exact version (x.y.z) instead of caret (^x.y.z) in package.json.
-  --specials            List of depcheck specials to include in check for unused dependencies.
-  --no-color            Force or disable color output.
-  --no-emoji            Remove emoji support. No emoji in default in CI environments.
-  --debug               Show debug output. Throw in a gist when creating issues on github.
+  -u, --update              Interactive update.
+  -y, --update-all          Uninteractive update. Apply all updates without prompting.
+  -g, --global              Look at global modules.
+  -s, --skip-unused         Skip check for unused packages.
+  -p, --production          Skip devDependencies.
+  -d, --dev-only            Look at devDependencies only (skip dependencies).
+  -i, --ignore              Ignore dependencies based on succeeding glob.
+  -E, --save-exact          Save exact version (x.y.z) instead of caret (^x.y.z) in package.json.
+  -l, --legacy-peer-deps    Disable automatic installation of peer dependencies.
+  --specials                List of depcheck specials to include in check for unused dependencies.
+  --no-color                Force or disable color output.
+  --no-emoji                Remove emoji support. No emoji in default in CI environments.
+  --debug                   Show debug output. Throw in a gist when creating issues on github.
 
 Examples
-  $ npm-check           # See what can be updated, what isn't being used.
-  $ npm-check ../foo    # Check another path.
-  $ npm-check -gu       # Update globally installed modules by picking which ones to upgrade.
+  $ npm-check-updated           # See what can be updated, what isn't being used.
+  $ npm-check-updated ../foo    # Check another path.
+  $ npm-check-updated -gu       # Update globally installed modules by picking which ones to upgrade.
 ```
 
 ![npm-check-u](https://cloud.githubusercontent.com/assets/51505/9569912/8c600cd8-4f48-11e5-8757-9387a7a21316.gif)

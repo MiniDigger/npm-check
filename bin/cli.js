@@ -23,7 +23,7 @@ updateNotifier({pkg}).notify();
 /* eslint-disable indent */
 const cli = meow(`
         Usage
-          $ npm-check <path> <options>
+          $ npm-check-updated <path> <options>
 
         Path
           Where to check. Defaults to current directory. Use -g for checking global modules.
@@ -41,12 +41,12 @@ const cli = meow(`
           --specials                List of depcheck specials to include in check for unused dependencies.
           --no-color                Force or disable color output.
           --no-emoji                Remove emoji support. No emoji in default in CI environments.
-          --debug                   Debug output. Throw in a gist when creating issues on github.
+          --debug                   Show debug output. Throw in a gist when creating issues on github.
 
         Examples
-          $ npm-check           # See what can be updated, what isn't being used.
-          $ npm-check ../foo    # Check another path.
-          $ npm-check -gu       # Update globally installed modules by picking which ones to upgrade.
+          $ npm-check-updated           # See what can be updated, what isn't being used.
+          $ npm-check-updated ../foo    # Check another path.
+          $ npm-check-updated -gu       # Update globally installed modules by picking which ones to upgrade.
     `,
     {
     	importMeta: import.meta,
