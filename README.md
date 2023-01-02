@@ -10,6 +10,14 @@ npm-check
 
 > This is my personal fork, that I may or may not keep updated
 
+#### Changes from upstream
+* merged some PRs:
+  * Get the library running again without errors https://github.com/dylang/npm-check/pull/482
+  * Take all prerelease tags into account https://github.com/dylang/npm-check/pull/347
+  * adds support for legacy-peer-deps flag on npm install https://github.com/dylang/npm-check/pull/424
+* allow self signed certs in chain
+*
+
 ### Features
 
 * Tells you what's out of date.
