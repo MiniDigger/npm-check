@@ -8,6 +8,8 @@ npm-check
 
 <img width="796" alt="npm-check -u" src="https://cloud.githubusercontent.com/assets/51505/9569917/96947fea-4f48-11e5-9783-2d78077256f2.png">
 
+> This is my personal fork, that I may or may not keep updated
+
 ### Features
 
 * Tells you what's out of date.
@@ -176,7 +178,7 @@ Enable or disable the spinner. Useful for terminals that don't support them. Aut
 The API is here in case you want to wrap this with your CI toolset.
 
 ```js
-const npmCheck = require('npm-check');
+import npmCheck from 'npm-check';
 
 npmCheck(options)
   .then(currentState => console.log(currentState.get('packages')));
